@@ -25,7 +25,7 @@ class Article extends Component {
     API.getNyData()
       .then(response =>
         this.setState({
-          articles: response.data,
+          articles: response.data.results,
           title: "",
           author: "",
           synopsis: ""
