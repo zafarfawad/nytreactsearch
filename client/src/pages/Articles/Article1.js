@@ -6,6 +6,9 @@ import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
 import { Input, TextArea, FormBtn } from "../../components/Form";
+import DatePicker from 'react-datepicker';
+
+
 
 class Books extends Component {
   state = {
@@ -20,14 +23,14 @@ class Books extends Component {
   }
 
   loadArticles = () => {
-    API.getBooks()
+    API.getArticles()
       .then(res =>
         this.setState({ books: res.data, title: "", author: "", synopsis: "" })
       )
       .catch(err => console.log(err));
   };
 
-  deleteBook = id => {
+  deleteArticle = id => {
     API.deleteBook(id)
       .then(res => this.loadBooks())
       .catch(err => console.log(err));
@@ -43,18 +46,19 @@ class Books extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     if (this.state.title && this.state.author) {
-      API.saveBook({
+      API.saveArticle({
         title: this.state.title,
         author: this.state.author,
         synopsis: this.state.synopsis
       })
-        .then(res => this.loadBooks())
+        .then(res => this.loadArticles())
         .catch(err => console.log(err));
     }
   };
 
   render() {
     return (
+
       <Container fluid>
         <Row>
           <Col size="md-6">
@@ -74,6 +78,13 @@ class Books extends Component {
                 name="author"
                 placeholder="Author (required)"
               />
+               {/* <Input
+                selected={this.state.startDate}
+                selectsStart
+                startDate={this.state.startDate}
+                endDate={this.state.endDate}
+                onChange={this.handleChangeStart}
+              /> */}
               <TextArea
                 value={this.state.synopsis}
                 onChange={this.handleInputChange}

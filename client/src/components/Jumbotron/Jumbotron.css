@@ -1,0 +1,11 @@
+.jumbotron{
+text-align: center;
+  border: 1px #DDDDDD solid;
+}
+
+h1{
+    font-size: 400%;
+}
+h2 {
+    font-size: 200%;
+}

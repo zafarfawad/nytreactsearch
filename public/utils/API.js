@@ -1,9 +1,9 @@
-import axios from "axios";
+// import axios from "axios";
 
-export default {
-  // Gets all books
+// export default {
+//   // Gets all books
 
-  getNyData: function() {
-    return axios.get("/api/nyt");
-  }
-};
+//   getNyData: function() {
+//     return axios.get("/api/nyt");
+//   }
+// };
