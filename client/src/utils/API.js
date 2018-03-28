@@ -1,4 +1,6 @@
 import axios from "axios";
+const BASEURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?";
+const APIKEY = "api-key=0c5ec128b06d45328a725462356412bb";
 
 export default {
   // Gets all books
@@ -17,11 +19,18 @@ export default {
   saveArticle: function(articleData) {
     return axios.post("/api/articles", articleData);
   },
-  getNyData: function(start, end, topic) {
-    console.log(formData.startDate);
-    return axios.get("/api/nyt" + start + end + topic);
-  },
+  // getNyData: function(start) {
+  // return axios.get("/api/nyt" + start);
+  //},
   postNyData: function(formData) {
     return axios.post("/api/nyt", formData);
+  },
+  getNyData: function(start, end, topic) {
+    const myBegin = "&begin_date=" + start;
+    const myEnd = "&end_date=" + end;
+    const myQuery = "&q=" + topic;
+    const URL = BASEURL + APIKEY + myQuery + myBegin + myEnd;
+    console.log(URL);
+    return axios.get(URL);
   }
 };
