@@ -6,11 +6,14 @@ import Articles from "./pages/Articles";
 import Nav from "./components/Nav";
 
 const App = () =>  (
-  <div>
-  {/* <Nav /> */}
-  <Articles />
-
-  </div>
+  <Router>
+    <div>
+      <Switch>
+        <Route exact path="/" component={Articless} />
+        <Route component={NoMatch} />
+      </Switch>
+    </div>
+  </Router>
 );
 
 export default App;
