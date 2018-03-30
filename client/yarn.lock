@@ -5974,6 +5974,8 @@ react-motion-ui-pack@^0.10.3:
     get-prefix "^1.0.0"
     prop-types "^15.5.10"
     react-motion "^0.4.5"
+    react "^16.2.0"
+    react-dom "^16.2.0"
 
 react-motion@^0.4.5:
   version "0.4.8"
