@@ -5,9 +5,10 @@ import Article from "./pages/Articles";
 // import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
 
-const App = () =>  (
+const App = () => (
   <Router>
     <div>
+      <Nav />
       <Switch>
         <Route exact path="/" component={Article} />
       </Switch>
